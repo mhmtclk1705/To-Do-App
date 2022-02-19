@@ -13,7 +13,7 @@
             /* align-items: center; */
             font-size: 1.5rem;
             background-color: rgb(128, 0, 128,0.8);
-            /* height: 80vh; */
+           
         }
         .container{
             display: flex;
@@ -43,25 +43,85 @@
             width: 60px;
         }
         #to-do-app-list span{
-            position: relative;
-            top: 5px;
-            border: 1px solid white;
+             border: 1px solid white;
             border-radius: 5px;
             background-color: white;
             color: rgb(128, 0, 128,0.8);
-            padding: 10px;
+            padding: 5px;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 700; 
+            
+            
 
+        }
+        
+        .unchecked::before{
+            content: "\2610";
+            background-color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 10px;
+            
+        }
+        .unchecked{
+            opacity: 1;
+            
+        }
+        .checked::before{
+            content: "\2714";
+            color: green;
+            background-color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 10px;
+
+        }
+        .checked{
+            opacity: 0.4;
+
+        }
+        #small:hover{
+            cursor: pointer;
         }
          span:hover{
              cursor: pointer;
-             text-decoration: underline;
             
          }
          input[type="checkbox"]{
              transform: scale(1.5);
              margin: 10px;
+         }
+         .delete{
+            height: 30px;
+            width: 60px;
+            margin-left: 15px;
+            border: none;
+            border-radius: 3px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-weight: 700;
+            padding: 10px auto;
+            font-size: 1rem;
+            width: 60px;
+             
+         }
+         .delete:hover{
+             cursor: pointer;
+         }
+         .to-do-list-li{
+             display: flex;
+             flex-direction: row;
+             align-items: center;
+             justify-content: space-between;
+             height: 40px;
+             margin: 5px 0px;
+         }
+         
+
+         .footer small{
+             font-size: 1.5rem;
          }
          
     </style>
@@ -69,11 +129,23 @@
 <body>
     <div class="container">
         <div class="header"><h1>To Do App</h1></div>
-        <div class="input"><input type="text" id="input_text"><button id="add_button">Add</button></div>
-        <!-- <div class="to-do-app-list"><ul id="to-do-app-list"><li>Lorem ipsum dolor sit amet.</li></ul></div> -->
-        <div id="to-do-app-list"></div>
-        <!-- <input type="checkbox" id="checkbox" > -->
-        <div class="footer"><h4><span id="complated_app">0</span> OUT of <span id="total_app"> 0 </span> TASK COMPLETED</h4></div>
+        <form id="add-task">
+        <div class="input"><input type="text" id="input_text" placeholder="&#128393; add task"><button id="add_button">Add</button></div></form>
+        <div id="to-do-app-list">
+            <ul id="to-do-list-ul">
+                <div class="to-do-list-li">
+                    <span class="unchecked">Lorem ipsum dolor sit amet.</span>
+                    <button class="delete"><i class="far fa-trash-alt"></i></button>
+    
+                </div>
+                <div class="to-do-list-li">
+                    <span class="checked">Lorem ipsum dolor sit amet.</span>
+                    <button class="delete"><i c class="far fa-trash-alt"></i></button>
+    
+                </div>
+            </ul>
+        </div>
+        <div class="footer"><h4><small id="complated_app">0</small> OUT of <small id="total_app"> 0 </small> TASK COMPLETED</h4></div>
     </div>
     <script src="app.js"></script>
     <script src="https://kit.fontawesome.com/8c29faa18e.js" crossorigin="anonymous"></script>
